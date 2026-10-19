@@ -1,0 +1,9 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><style>body{font:14px system-ui;width:330px;padding:14px;color:#eee;background:#202026}h1{font-size:18px}label{display:block;margin:12px 0 5px}input,button{box-sizing:border-box;width:100%;padding:9px;margin:4px 0}button{cursor:pointer}small{color:#bbb}#status{white-space:pre-wrap;margin-top:12px}</style></head><body>
+<h1>BandLab local bridge</h1>
+<small>Open your Studio tab. Select the pairing file made by the running local bridge. Only the tab you connect can receive commands.</small>
+<label for="config">Pairing JSON file</label><input id="config" type="file" accept=".json,application/json">
+<label for="token">Or paste the pairing token</label><input id="token" type="password" autocomplete="off" spellcheck="false" placeholder="64 character token">
+<small>Local port: 17845. Pairing expires when the bridge restarts.</small>
+<button id="connect">Connect this Studio tab</button><button id="disconnect">Disable bridge</button>
+<div id="status" role="status"></div><script src="popup.js"></script></body></html>

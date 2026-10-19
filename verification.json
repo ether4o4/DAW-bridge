@@ -1,0 +1,55 @@
+{
+  "date": "2026-10-19",
+  "version": "0.1.0",
+  "automatedTests": {
+    "command": "npm.cmd test",
+    "passed": 43,
+    "failed": 0,
+    "rxAdapter": 23,
+    "bandlabServer": 7,
+    "bandlabContentScriptSimulatedDOM": 8,
+    "runtimePaths": 5,
+    "liveBrowserCompatibilityProvenByTheseTests": false
+  },
+  "rx": {
+    "installedVersion": "12.0.0.1410",
+    "launchedAndConnected": true,
+    "accessibilityRead": "verified",
+    "indexedAccessibilityWrite": "blocked by native cached-element error",
+    "keyboardAndScreenshotInput": "verified through src/rx.mjs",
+    "numericTest": {
+      "module": "Voice De-noise",
+      "parameter": "Reduction dB",
+      "original": 12.0,
+      "testValue": 6.0,
+      "restored": 12.0,
+      "verification": "Visual field and slider readback after Return",
+      "renderInvoked": false,
+      "originalHistoryUnchanged": true,
+      "moduleClosedAfterTest": true
+    },
+    "limits": [
+      "Requires Codex Computer Use runtime and available RX desktop",
+      "Some module dialogs expose no accessibility tree or focused element",
+      "Screenshot coordinates must be re-observed for each layout",
+      "No headless rendering or cross-app audio transfer implemented"
+    ]
+  },
+  "bandlab": {
+    "service": "127.0.0.1:17845",
+    "serviceStarted": true,
+    "authenticatedCliStatus": "verified",
+    "extensionBuilt": true,
+    "extensionInstalled": false,
+    "pairedStudioTab": false,
+    "liveExtensionEditVerified": false,
+    "existingCodexBrowserConnection": "Read works; edits timed out before dispatch, including after one reconnect",
+    "nextRequiredStep": "Load extension into Edge, refresh saved Studio tab, select local pairing JSON, connect tab, and verify one reversible setting change",
+    "limits": [
+      "Recognized visible controls only, maximum 250 per snapshot",
+      "Native inputs/selects support setting; custom sliders without fields are inspection-only",
+      "No publish, recording, account changes, deletion, save, track creation, or file transfer commands",
+      "Displayed-value verification is not audible verification"
+    ]
+  }
+}

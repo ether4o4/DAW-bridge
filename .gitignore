@@ -1,0 +1,12 @@
+node_modules/
+*.log
+bandlab-runtime.json
+work/
+.env
+.env.*
+!.env.example
+*.wav
+*.mp3
+*.m4a
+*.flac
+*.rxdoc

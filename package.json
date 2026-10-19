@@ -1,0 +1,14 @@
+{
+  "name": "local-audio-control-bridge",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Local RX desktop adapter and BandLab Studio browser bridge",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "start": "node src/bandlab-server.mjs",
+    "status": "node src/bandlab-client.mjs status",
+    "inspect": "node src/bandlab-client.mjs snapshot"
+  }
+}
