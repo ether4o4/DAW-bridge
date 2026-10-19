@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "automatedTests": {
     "command": "npm.cmd test",
-    "passed": 43,
+    "passed": 44,
     "failed": 0,
     "rxAdapter": 23,
     "bandlabServer": 7,
-    "bandlabContentScriptSimulatedDOM": 8,
+    "bandlabContentScriptSimulatedDOM": 9,
     "runtimePaths": 5,
     "liveBrowserCompatibilityProvenByTheseTests": false
   },
@@ -43,12 +43,14 @@
     "extensionInstalled": false,
     "pairedStudioTab": false,
     "liveExtensionEditVerified": false,
+    "latestSetupAttempt": "Computer Use launch of Edge timed out awaiting app access; Edge browser connector unavailable. Awaiting Edge access to install and pair.",
     "existingCodexBrowserConnection": "Read works; edits timed out before dispatch, including after one reconnect",
     "nextRequiredStep": "Load extension into Edge, refresh saved Studio tab, select local pairing JSON, connect tab, and verify one reversible setting change",
     "limits": [
       "Recognized visible controls only, maximum 250 per snapshot",
       "Native inputs/selects support setting; custom sliders without fields are inspection-only",
       "No publish, recording, account changes, deletion, save, track creation, or file transfer commands",
+      "Native field readback is input echo only; application commit requires external UI readback",
       "Displayed-value verification is not audible verification"
     ]
   }

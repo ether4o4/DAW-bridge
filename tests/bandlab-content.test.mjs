@@ -179,8 +179,28 @@ test('set uses native value setter, dispatches input/change, and reports observe
   assert.equal(gain.blurs, 1);
   assert.equal(result.verification.actualAfterValue, '6');
   assert.equal(result.verification.verified, true);
+  assert.equal(result.verification.scope, 'input-echo');
+  assert.equal(result.verification.applicationCommitVerified, false);
   assert.match(result.verification.note, /audio result not verified/i);
   assert.notEqual(result.snapshot.snapshotId, snapshot.snapshotId);
+});
+
+test('native input echo does not claim an application commit when its model is unchanged', async () => {
+  const { h, gain, snapshot, control } = await armedGain();
+  const model = { gain: gain.value };
+  // Model a field whose application commits only on Enter, not input/change/blur.
+  gain.dispatchEvent = event => {
+    gain.events.push(event);
+    if (event.type === 'keydown' && event.key === 'Enter') model.gain = gain.value;
+    return true;
+  };
+  const result = await h.action(snapshot, control);
+  assert.equal(gain.value, '6');
+  assert.equal(model.gain, '3');
+  assert.equal(result.verification.verified, true); // Compatibility: same-field readback only.
+  assert.equal(result.verification.scope, 'input-echo');
+  assert.equal(result.verification.applicationCommitVerified, false);
+  assert.match(result.verification.note, /external UI readback is needed to verify application commit/i);
 });
 
 test('expired command and aged snapshot reject before mutation', async () => {

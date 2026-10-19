@@ -107,7 +107,7 @@
       await settle();
       const afterValue = el.isConnected ? value(el) : null;
       const verified = c.afterValue !== null && afterValue === c.afterValue;
-      return { ok: c.afterValue === null || verified, actionDispatched: dispatched, verification: { beforeValue: c.beforeValue, expectedAfterValue: c.afterValue, actualAfterValue: afterValue, verified, note: c.afterValue === null ? 'Dispatch only. Inspect the new snapshot to verify the intended UI change.' : verified ? 'Same control reports expected value; audio result not verified.' : 'Expected value was not observed. Do not retry automatically.' }, snapshot: await snapshot() };
+      return { ok: c.afterValue === null || verified, actionDispatched: dispatched, verification: { beforeValue: c.beforeValue, expectedAfterValue: c.afterValue, actualAfterValue: afterValue, verified, scope: c.action === 'set' ? 'input-echo' : c.afterValue === null ? 'dispatch-only' : 'control-readback', applicationCommitVerified: false, note: c.afterValue === null ? 'Dispatch only. Inspect the new snapshot to verify the intended UI change.' : verified ? c.action === 'set' ? 'Native field reports expected value (input echo); external UI readback is needed to verify application commit; audio result not verified.' : 'Same control reports expected value; audio result not verified.' : 'Expected value was not observed. Do not retry automatically.' }, snapshot: await snapshot() };
     } catch (err) { return { ok: false, error: err.message, actionDispatched: dispatched, outcome: dispatched ? 'unknown' : 'not_dispatched', doNotRetry: true }; }
   }
   chrome.runtime.onMessage.addListener((message, sender, reply) => {
